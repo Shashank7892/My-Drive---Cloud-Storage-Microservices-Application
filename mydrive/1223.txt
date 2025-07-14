@@ -1,0 +1,10 @@
+Key Id:rzp_test_d3NWeQ46AbioC4
+
+Key Secret:Nk21AljUtmMryk0zKh8EOSFh
+
+
+pay_Qr02inr31YqugL
+
+
+
+Signature: f2db2ec0de89d5fb23892aec198d21a35ab51a774e3137fb4008ad9a8da333d7

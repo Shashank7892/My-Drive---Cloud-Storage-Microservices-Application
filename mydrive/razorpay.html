@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Razorpay Test Checkout</title>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
+    <h1>Simulate Razorpay Payment</h1>
+    <button id="rzp-button1">Pay with Razorpay</button>
+
+    <script>
+        var options = {
+            "key": "rzp_test_d3NWeQ46AbioC4", // Replace with your Test Key ID (rzp_test_...)
+            "amount": "20000", // Amount in paise (e.g., 20000 for INR 200). Must match your order amount.
+            "currency": "INR", // Must match your order currency
+            "name": "My Drive App",
+            "description": "Test Payment for Order",
+            "order_id": "order_QrLuW94UTnzoUC", // <--- REPLACE THIS WITH THE ORDER_ID FROM STEP 1
+            "handler": function (response){
+                alert("Payment ID: " + response.razorpay_payment_id);
+                alert("Order ID: " + response.razorpay_order_id);
+                alert("Signature: " + response.razorpay_signature);
+                // In a real app, you'd send these to your backend for verification
+            },
+            "prefill": {
+                "name": "Test User",
+                "email": "test@example.com",
+                "contact": "9876543210"
+            },
+            "notes": {
+                "user_id": "12345",
+                "plan_code": "storage_2gb_topup"
+            },
+            "theme": {
+                "color": "#3399cc"
+            }
+        };
+        var rzp1 = new Razorpay(options);
+        document.getElementById('rzp-button1').onclick = function(e){
+            rzp1.open();
+            e.preventDefault();
+        }
+    </script>
+</body>
+</html>
